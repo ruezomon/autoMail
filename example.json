@@ -1,0 +1,13 @@
+{
+    "sender-address": "my.name@gmail.com",
+    "sender-pw": "password123",
+    "recipients": [
+        "bestfriend@gmail.com",
+        "idiot@outlook.com",
+        "professional.bumass@outlook.com"
+    ],
+    "file-attachments": [
+        "image.jpg",
+        "frown.gif"
+    ]
+}

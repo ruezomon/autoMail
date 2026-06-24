@@ -1,0 +1,7 @@
+### personal ###
+*.json
+*.jpg
+!example*
+
+### python ###
+__pycache__
