@@ -54,7 +54,7 @@ def sendMail(data):
         ### fill ###
         message = MIMEMultipart()
         message["From"] = sender 
-        message["To"] = "20240125@htlwrn.ac.at"
+        message["To"] = recipient
         message["Subject"] = "Auto Mail"
 
         body = f"""Hallo {recipient.split("@")[0]}!
