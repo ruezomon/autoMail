@@ -59,14 +59,14 @@ def sendMail(data):
         message["Subject"] = subject
 
         body = f"""Hallo {recipient.split("@")[0]}!
-    Diese E-Mail wird automatisiert versendet!
-    Es sollte auch ein Anhang dabei sein...
+Diese E-Mail wird automatisiert versendet!
+Es sollte auch ein Anhang dabei sein...
 
-    Hoffe es funktioniert!
+Hoffe es funktioniert!
 
-    LG
-    {sender.split("@")[0]}
-    """
+LG
+{sender.split("@")[0]}
+"""
         message.attach(MIMEText(body, "plain"))
 
         ### add files ###
