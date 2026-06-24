@@ -47,6 +47,7 @@ def sendMail(data):
     sender = data["sender-address"]
     pw = data["sender-pw"]
     files = data["file-attachments"]
+    subject = data["subject"]
 
     ### create mail and send ###
     for recipient in data["recipients"]:
@@ -55,7 +56,7 @@ def sendMail(data):
         message = MIMEMultipart()
         message["From"] = sender 
         message["To"] = recipient
-        message["Subject"] = "Auto Mail"
+        message["Subject"] = subject
 
         body = f"""Hallo {recipient.split("@")[0]}!
     Diese E-Mail wird automatisiert versendet!
@@ -99,6 +100,7 @@ def dataIsValid(data):
         data["sender-address"]
         data["sender-pw"]
         data["recipients"]
+        data["subject"]
         data["file-attachments"]
         return True
     except KeyError:

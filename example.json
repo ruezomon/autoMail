@@ -1,6 +1,7 @@
 {
     "sender-address": "my.name@gmail.com",
     "sender-pw": "password123",
+    "subject": "very important!!!",
     "recipients": [
         "bestfriend@gmail.com",
         "idiot@outlook.com",
