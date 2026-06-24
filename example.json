@@ -1,11 +1,17 @@
 {
     "sender-address": "my.name@gmail.com",
+    "sender-name": "Exampleman John",
     "sender-pw": "password123",
     "subject": "very important!!!",
     "recipients": [
         "bestfriend@gmail.com",
         "idiot@outlook.com",
         "professional.bumass@outlook.com"
+    ],
+    "recipient-names": [
+        "Thomas",
+        "Buford Bradly",
+        "Mr. Charles James McJameston"
     ],
     "file-attachments": [
         "image.jpg",

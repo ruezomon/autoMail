@@ -102,6 +102,8 @@ def dataIsValid(data):
         data["recipients"]
         data["subject"]
         data["file-attachments"]
+        data["sender-name"]
+        data["recipient-names"]
         return True
     except KeyError:
         return False
