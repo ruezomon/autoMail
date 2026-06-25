@@ -14,11 +14,21 @@ class INException(Exception):
     def __str__(self):
         return f"{self.message}"
 
+class FNFException(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+        self.message = message
+
+    def __str__(self):
+        return f"{self.message}"
+
 def getConfigPath():
     allFiles = list()
     for i in os.listdir():
         if (i.endswith(".json")):
             allFiles.append(i)
+    if len(allFiles == 0):
+        raise FNFException
     if len(allFiles) == 1:
         return allFiles[0]
 
@@ -27,20 +37,7 @@ def getConfigPath():
         print(f" ({allFiles.index(i) + 1}) {i}")
     print(f"which configuration would you like to use?")
 
-    userInput = ""
-    while True:
-        try:
-            userInput = input(f"(1-{len(allFiles)}): ")
-            userInput = int(userInput)
-            if userInput < 1 or userInput > len(allFiles):
-                raise INException("Invalid Number!")
-            break
-        except ValueError:
-            print("Invalid input!")
-        except INException as e:
-            print(e)
-    
-    return allFiles[userInput - 1]
+    return allFiles[getInt(len(allFiles)) - 1]
 
 def sendMail(data):
     ### init ###
@@ -107,3 +104,43 @@ def dataIsValid(data):
         return True
     except KeyError:
         return False
+
+def getInt(max=2):
+    userInput = ""
+    while True:
+        try:
+            userInput = input(f"(1-{max}): ")
+            userInput = int(userInput)
+            if userInput < 1 or userInput > max:
+                raise INException("Invalid Number!")
+            break
+        except ValueError:
+            print("Invalid input!")
+        except INException as e:
+            print(e)
+    
+    return userInput
+
+def getContentFilePath():
+    allFiles = list()
+    for i in os.listdir():
+        if (i.endswith(".txt")):
+            allFiles.append(i)
+    if len(allFiles) == 0:
+        raise FNFException("Message content not found!")
+    elif len(allFiles) == 1:
+        return allFiles[0]
+    
+    print("multiple configuration files were found in this directory:")
+    for i in allFiles:
+        print(f" ({allFiles.index(i) + 1}) {i}")
+    print(f"which configuration would you like to use?")
+
+    return allFiles(getInt(len(allFiles)) - 1)
+
+def getContent(path):
+    res = str()
+    with open(path) as f:
+        for i in f.readlines():
+            res += i
+    return res
