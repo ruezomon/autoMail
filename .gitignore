@@ -1,7 +1,10 @@
 ### personal ###
 *.json
 *.jpg
-!example*
+*.txt
 
 ### python ###
 __pycache__
+
+### examples ###
+!example*
